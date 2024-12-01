@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/inicio.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ranking.css' %}">
+    <title>Ranking do Jogo</title>
+</head>
+<body>
+    <h1>Ranking</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Posição</th>
+                <th>Nome</th>
+                <th>Tentativas</th>
+                <th>Tempo</th>
+                <th>Data e Hora</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for jogo in jogos %}
+            <tr>
+                <td>{{ forloop.counter }}</td> <!-- Mostra a posição -->
+                <td>{{ jogo.nome }}</td>
+                <td>{{ jogo.tentativas }}</td>
+                <td>{{ jogo.tempo }} segundos</td>
+                <td>{{ jogo.data_hora }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">Nenhum jogo encontrado.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+<div>
+    <button onclick="window.location.href='/'" class="voltar">Inicio</button>
+</div>
+<div class="rodape">
+
+
+    <footer>
+        <p>Componentes: Geovana Karla de Lima Farias e Palmiére Santana Lima Vasco</p>
+        <p>Disciplina: Programação para Internet</p>
+        <p>Professor: Marcelo Figueiredo Barbosa Júnior</p>
+        <p>IFRN - Campus Santa Cruz</p>
+        <p>Todos os direitos reservados &copy;</p>
+     </footer>
+
+    </div>
+</body>
+</html>
