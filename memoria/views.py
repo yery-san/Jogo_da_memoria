@@ -38,7 +38,7 @@ def login(request):
         user = authenticate(username=username, password=senha)
         
         if user:
-            return render(request, 'memoria/index.html') #redirect('index')
+            return render(request, 'memoria/jogo.html') #redirect('index')
         else:
             return HttpResponse('email ou senha invalidos')
         
@@ -49,15 +49,15 @@ def login(request):
 #     else:
 #         return HttpResponse('Você precisa está logado para acessar essa área')
     
-@login_required(login_url='login')
-def index(request):
-    return render(request, 'memoria/index.html')
+# @login_required(login_url='login')
+# def index(request):
+#     return render(request, 'memoria/index.html')
 
 @login_required(login_url='login')
 @csrf_exempt 
 def jogo(request):
     if request.method == 'POST':
-        nome = request.POST.get('nome')
+        nome = request.user.username
         tentativas = int(request.POST.get('tentativas'))
         tempo = (request.POST.get('tempo'))
         data_hora = timezone.now()
