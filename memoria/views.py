@@ -38,16 +38,16 @@ def login(request):
         user = authenticate(username=username, password=senha)
         
         if user:
-            return redirect('index')
+            return render(request, 'memoria/index.html') #redirect('index')
         else:
             return HttpResponse('email ou senha invalidos')
         
-def plataforma (request):
-    if request.user.is_authenticated:
-     return HttpResponse('Plataforma')
+# def plataforma (request):
+#     if request.user.is_authenticated:
+#      return HttpResponse('Plataforma')
  
-    else:
-        return HttpResponse('Você precisa está logado para acessar essa área')
+#     else:
+#         return HttpResponse('Você precisa está logado para acessar essa área')
     
 @login_required(login_url='login')
 def index(request):
