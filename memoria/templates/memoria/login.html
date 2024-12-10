@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/inicio.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Login</h1>
+
+    <form action="{% url 'login' %}" method="POST">{% csrf_token %}
+        <input type="text" placeholder="Username..." name="username" required>
+        <br>
+        <input type="password" placeholder="Senha..." name="senha" required>
+        <br>
+        <input type="submit" value="Logar">
+        <button type="button" class="ranking" onclick="window.location.href='http://localhost:8000/ranking/'">Ranking</button>
+        <br>
+
+    </form>
+
+    <footer>
+        <p>Componentes: Geovana Karla de Lima Farias, Palmiére Santana Lima Vasco e Raquel Oliveira Maia de Souza</p>
+        <p>Disciplina: Programação para Internet</p>
+        <p>Professor: Marcelo Figueiredo Barbosa Júnior</p>
+        <p>IFRN - Campus Santa Cruz</p>
+        <p>Todos os direitos reservados &copy;</p>
+     </footer>
+</body>
+</html>

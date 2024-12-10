@@ -1,0 +1,113 @@
+/* Estilização geral */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eef2f3;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+    background-image: url('../img/patio.jpg');
+}
+
+/* Estilização do cabeçalho */
+h2 {
+    color: #000000;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+/* Contêiner principal */
+form {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 20px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Estilo dos inputs */
+input[type="text"], input[type="email"], input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Estilo dos botões */
+input[type="submit"], .ranking, .login {
+    background-color: #00ff6e;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color:#00ff6e;
+}
+
+.ranking:hover {
+    background-color: #00ff6e;
+}
+
+.login {
+    background-color: #ffc107;
+    color: #333;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.login:hover {
+    background-color: #e0a800;
+    color: #fff;
+}
+
+/* Rodapé fixo */
+footer {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #000000;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-size: 14px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* Ajuste para dispositivos móveis */
+@media (max-width: 600px) {
+    form {
+        padding: 15px;
+    }
+
+    input[type="text"], input[type="email"], input[type="password"], input[type="submit"], .ranking, .login {
+        font-size: 14px;
+    }
+
+    footer p {
+        font-size: 12px;
+    }
+}
