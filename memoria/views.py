@@ -63,6 +63,8 @@ def jogo(request):
         tentativas = int(request.POST.get('tentativas'))
         tempo = (request.POST.get('tempo'))
         data_hora = timezone.now()
+        
+        jogador = request.user.username
 
         # Salva a partida no banco de dados
         jogo = Jogo.objects.create(nome=nome, tentativas=tentativas, tempo=tempo, data_hora=data_hora)
@@ -72,8 +74,22 @@ def jogo(request):
     
     return render(request, 'memoria/jogo.html')
 
+# def ranking(request):
+#     jogos = Jogo.objects.all().order_by('tentativas', 'tempo', '-data_hora')  # Ordena por tentativas, tempo e data
+#     context = {
+#         'jogos': jogos
+#     }
+#     return render(request, 'memoria/ranking.html', context)
+
 def ranking(request):
-    jogos = Jogo.objects.all().order_by('tentativas', 'tempo', '-data_hora')  # Ordena por tentativas, tempo e data
+    if request.user.is_authenticated:
+        # Obtém todas as partidas do jogador logado
+        jogos = Jogo.objects.filter(nome=request.user.username).order_by('tentativas', 'tempo', '-data_hora')
+        
+    else:
+        # Obtém todas as partidas para usuários não logados
+        jogos = Jogo.objects.all().order_by('tentativas', 'tempo', '-data_hora')
+    
     context = {
         'jogos': jogos
     }
