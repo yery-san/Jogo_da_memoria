@@ -13,14 +13,12 @@ body {
     background-image: url('../img/patio.jpg');
 }
 
-/* Estilização do cabeçalho */
 h2 {
-    color: #000000;
+    color: #ffffff;
     padding: 10px;
     margin-bottom: 20px;
 }
 
-/* Contêiner principal */
 form {
     background: #ffffff;
     border-radius: 8px;
@@ -32,7 +30,6 @@ form {
     margin-bottom: 20px;
 }
 
-/* Estilo dos inputs */
 input[type="text"], input[type="email"], input[type="password"] {
     width: calc(100% - 20px);
     padding: 10px;
@@ -42,7 +39,6 @@ input[type="text"], input[type="email"], input[type="password"] {
     font-size: 16px;
 }
 
-/* Estilo dos botões */
 input[type="submit"], .ranking, .login {
     background-color: #00ff6e;
     color: #fff;
@@ -80,34 +76,18 @@ input[type="submit"]:hover {
     color: #fff;
 }
 
-/* Rodapé fixo */
 footer {
     background-color: rgba(255, 255, 255, 0.8);
     color: #000000;
     text-align: center;
-    padding: 10px;
+    padding: 15px;
     width: 100%;
     position: fixed;
     bottom: 0;
     left: 0;
-    font-size: 14px;
+    font-size: 9px; 
 }
 
 footer p {
     margin: 5px 0;
-}
-
-/* Ajuste para dispositivos móveis */
-@media (max-width: 600px) {
-    form {
-        padding: 15px;
-    }
-
-    input[type="text"], input[type="email"], input[type="password"], input[type="submit"], .ranking, .login {
-        font-size: 14px;
-    }
-
-    footer p {
-        font-size: 12px;
-    }
 }

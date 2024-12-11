@@ -1,0 +1,45 @@
+h1 {
+    text-align: center;
+    color: #ffffff; 
+    padding: 15px;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+body{
+    background-image: url('../img/patio.jpg');
+    width: 100%;
+  }
+
+button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px #999; /* Adiciona uma sombra para um efeito 3D sutil */
+    transition: background-color 0.3s ease; /* Transição para uma mudança mais suave de cor */
+}
+
+button:hover {
+    background-color: #d32f2f;
+    box-shadow: 0 6px #888; /* Aumenta a profundidade da sombra quando o mouse estiver sobre o botão */
+}
+
+footer {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #000000;
+    text-align: center;
+    padding: 15px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    font-size: 9px; 
+}
+
+footer p {
+    margin: 5px 0;
+}

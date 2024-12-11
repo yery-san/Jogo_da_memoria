@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/inicio.css' %}">
+    <link rel="stylesheet" href="{% static 'css/sair.css' %}">
+    <title>Sair do Login</title>
+</head>
+<body>
+    <h1>Você já está logado. Por favor, saia para logar novamente.</h1>
+    <button onclick="window.location.href='http://localhost:8000/sair/'">Sair</button>
+
+    <footer>
+        <p>Componentes: Geovana Karla de Lima Farias, Palmiére Santana Lima Vasco e Raquel Oliveira Maia de Souza</p>
+        <p>Disciplina: Programação para Internet</p>
+        <p>Professor: Marcelo Figueiredo Barbosa Júnior</p>
+        <p>IFRN - Campus Santa Cruz</p>
+        <p>Todos os direitos reservados &copy;</p>
+     </footer>
+</body>
+</html>

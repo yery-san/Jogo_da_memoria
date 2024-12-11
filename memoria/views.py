@@ -7,6 +7,8 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login as auth_login
+from django.contrib.auth import logout as auth_logout
 
 def cadastrar(request):
     if request.method == "GET":
@@ -25,11 +27,16 @@ def cadastrar(request):
         user.save()
         return redirect('login')
      
-
-    
 def login(request):
     if request.method == "GET":
-        return render(request, 'memoria/login.html')
+        
+         if request.user.is_authenticated:
+            # return HttpResponse('Você já está logado. Por favor, saia para logar novamente.')
+            return render(request, 'memoria/sair.html')
+        #  return render(request, 'memoria/login.html')
+        
+         else: 
+            return render(request, 'memoria/login.html') 
     
     else:
         username = request.POST.get('username')
@@ -38,26 +45,21 @@ def login(request):
         user = authenticate(username=username, password=senha)
         
         if user:
-            return render(request, 'memoria/jogo.html') #redirect('index')
-        else:
-            return HttpResponse('email ou senha invalidos')
+            auth_login(request, user)
+            return render(request, 'memoria/jogo.html')
         
-# def plataforma (request):
-#     if request.user.is_authenticated:
-#      return HttpResponse('Plataforma')
- 
-#     else:
-#         return HttpResponse('Você precisa está logado para acessar essa área')
-    
-# @login_required(login_url='login')
-# def index(request):
-#     return render(request, 'memoria/index.html')
+        else:
+            return HttpResponse('Usuário ou senha incorretos')
+        
+def logout(request):
+    auth_logout(request)
+    return render(request, 'memoria/login.html')
 
 @login_required(login_url='login')
 @csrf_exempt 
 def jogo(request):
     if request.method == 'POST':
-        nome = request.user.username
+        nome = request.POST.get('nome')
         tentativas = int(request.POST.get('tentativas'))
         tempo = (request.POST.get('tempo'))
         data_hora = timezone.now()

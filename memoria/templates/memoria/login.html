@@ -6,18 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/inicio.css' %}">
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+    <script src="{% static 'js/login.js' %}" defer></script>
+
     <title>Login</title>
 </head>
 <body>
     <h1>Login</h1>
 
     <form action="{% url 'login' %}" method="POST">{% csrf_token %}
-        <input type="text" placeholder="Username..." name="username" required>
+        <input type="text" placeholder="Username..." name="username" class="name" required>
         <br>
         <input type="password" placeholder="Senha..." name="senha" required>
         <br>
-        <input type="submit" value="Logar">
+        <input type="submit" value="Logar" class="salvar" disabled>
         <button type="button" class="ranking" onclick="window.location.href='http://localhost:8000/ranking/'">Ranking</button>
+        <button type="button" class="cadastro" onclick="window.location.href='http://localhost:8000'">Voltar para Cadastro</button>
+
         <br>
 
     </form>
